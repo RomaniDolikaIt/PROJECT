@@ -1,0 +1,89 @@
+.header-aside {
+    max-width: 1860px;
+    width: 100%;
+    display: flex;
+
+}
+
+.header-aside .left-side-aside {
+    max-width: 850px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 82px;
+    margin-left: 60px;
+    flex-grow: 1;
+}
+
+.header-aside .left-side-aside .shop-content {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    margin: 0 0 0 -24px;
+}
+
+.header-aside .left-side-aside .shop-content .shop-name {
+    font-family: Josefin Sans, serif;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 100%;
+    text-transform: capitalize;
+}
+
+.header-aside .left-side-aside .shop-content .shop-menu .menu-items {
+    font-family: Raleway, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: capitalize;
+    list-style-type: none;
+    display: flex;
+    position: relative;
+    padding-left: 12px;
+    gap: 12px;
+}
+
+.header-aside .left-side-aside .shop-content .shop-menu .menu-items::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: rgba(0, 0, 0, 1);
+}
+
+.header-aside .left-side-aside .shop-content .shop-menu .menu-items .name.active {
+    color: rgba(255, 142, 142, 1);
+}
+
+.header-aside .left-side-aside .photo-aside .image-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.header-aside .left-side-aside .photo-aside .image-container::after {
+    content: '';
+    position: absolute;
+    bottom: 64px;
+    left: -60px;
+    width: 850px;
+    height: 2px;
+    background: rgba(0, 0, 0, 1);
+}
+
+.header-aside .right-side-aside {
+    margin: 50px 60px 0 150px;
+    flex-grow: 1;
+}
+
+.header-aside .right-side-aside .photo-aside .image-container-square {
+    display: flex;
+    width: 800px;
+    height: 400px;
+    opacity: 1;
+    left: 940px;
+}
+
+
