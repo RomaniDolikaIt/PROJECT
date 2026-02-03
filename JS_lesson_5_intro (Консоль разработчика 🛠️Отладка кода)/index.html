@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Отладка кода</title>
+</head>
+<body>
+<script>
+    //Метод console.table()
+    let students = [
+        {name: "Alice", age: 15},
+        {name: "Berlin", age: 22},
+        {name: "China", age: 32},
+    ];
+    console.table(students);
+
+    //Таймеры
+    console.time("Loop time");
+    for (let i = 0; i < 100000; i++) {
+
+    }
+    console.timeEnd("Loop time");
+
+    //Группировка сообщений
+    console.group("Группа сообщений");
+    console.log("Сообщение 1")
+    console.log("Сообщение 1")
+    console.groupEnd();
+</script>
+</body>
+</html>

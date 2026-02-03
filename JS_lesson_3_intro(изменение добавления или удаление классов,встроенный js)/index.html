@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавление и удаление классов</title>
+    <style>
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<p id="text">Это текст.</p>
+<button onclick="toggleHighlight()">Переключить стиль</button>
+<script>
+    function toggleHighlight() {
+        document.getElementById("text").classList.toggle("highlight");
+    }
+</script>
+
+
+</body>
+</html>

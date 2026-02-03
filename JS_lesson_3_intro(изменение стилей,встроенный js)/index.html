@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изменение стилей</title>
+    <style>
+        #text {
+            color: blue;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<p id="text">Это текст.</p>
+<button onclick="changeStyle ()">Изменить стиль</button>
+<script>
+    function changeStyle () {
+        document.getElementById("text").style.color = "red";
+        document.getElementById("text").style.fontSize = "30px";
+    }
+</script>
+</body>
+</html>
