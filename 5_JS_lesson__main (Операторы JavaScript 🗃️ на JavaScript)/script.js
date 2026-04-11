@@ -168,7 +168,10 @@ const preferences = { theme: undefined, language: 'en' };
 console.log(preferences.theme ?? 'dark');  // 'dark' — theme === undefined
 console.log(preferences.language ?? 'en');  // 'en' — language не равен null или undefined
 
-
+//Кратко:
+//
+// если значение переменной равняется null или undefined, возвращается значение справа от оператора ??.
+// если значение переменной не является null или undefined, возвращается само значение переменной.
 
 
 
