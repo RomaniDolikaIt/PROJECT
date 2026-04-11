@@ -175,7 +175,15 @@ console.log(preferences.language ?? 'en');  // 'en' — language не равен
 //ToDo Операторы типа
 /*
 Операторы типа используются для проверки типов данных.
-
     typeof: возвращает строку, указывающую тип операнда.
     instanceof: проверяет, является ли объект экземпляром определенного класса или прототипа.
 */
+const a5 = 5;
+const b5 = 'Привет';
+
+console.log(typeof a5);// number
+console.log(typeof b5);// string
+
+const arr = [1, 2, 3];
+console.log(arr instanceof Array); // true
+
