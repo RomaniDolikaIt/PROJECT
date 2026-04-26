@@ -94,23 +94,29 @@ console.log(findLargestNumber([-10, -20, -30])); // Ожидается: -10
 
 //ИСПРАВЛЕННАЯ ВЕСИЯ
 
+/* Теперь корректно работает даже с отрицательными числами.
+*/
 function findLargestNumber(arr) {
+    // 1. Защита: если массив пустой или не передан
+    if (!arr || arr.length === 0) {
+        return null; // Или можно выбрасывать ошибку
+    }
 
-    let largest = 0;
+    // 2. КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ:
+    // Берем первый элемент массива как точку отсчета, а не 0.
+    let largest = arr[0];
 
-    for (let i = 0; i < arr.length; i++) {
-
+    // 3. Начинаем цикл с индекса 1, так как индекс 0 мы уже взяли
+    for (let i = 1; i < arr.length; i++) {
         if (arr[i] > largest) {
-
             largest = arr[i];
-
         }
-
     }
 
     return largest;
-
 }
 
-console.log(findLargestNumber([-10, -20, -30])); // Ожидается: -10
+// Теперь тесты будут корректно отображаться:
+console.log(findLargestNumber([-10, -20, -30])); // Результат: -10
+console.log(findLargestNumber([5, 12, 3, 9]));    // Результат: 12
 
