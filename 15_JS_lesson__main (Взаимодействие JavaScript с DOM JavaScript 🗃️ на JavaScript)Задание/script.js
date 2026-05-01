@@ -1,10 +1,5 @@
 //todo 1. Найди элемент на странице по его ID и измени его текстовое содержимое на что-то новое;
 
-//Представим, что у нас в HTML есть такой элемент:
-//    <h1 id="main-title">Старый заголовок</h1>
-
-//Вот как мы заменим его текст с помощью JavaScript:
-
 // 1. Находим элемент по его уникальному ID
 const titleElement = document.getElementById('main-title');
 
@@ -18,11 +13,6 @@ console.log(titleElement);
 
 //todo 2. Используй JavaScript, чтобы изменить фон и цвет текста элемента с определенным классом;
 
-/*Допустим, на странице есть карточка:
-    <div class="card">Информационный блок</div>
-
-Вот как мы превратим её в «ночной режим» через JavaScript:
- */
 // 1. Находим ПЕРВЫЙ элемент с классом 'card'
 const card = document.querySelector('.card');
 
@@ -69,16 +59,7 @@ function removeElementById(elementId) {
     console.log(`Элемент "${elementId}" успешно удален.`);
 }
 
-// Пример использования:
-// removeElementById('ad-banner');
-
 //todo 5. Измени атрибут ссылки на новый URL и выведи его значение в консоль;
-
-//Представим, что у нас есть такая ссылка в HTML:
-//    <a id="dynamic-link" href="https://google.com">Перейти на сайт</a>
-
-//Способ 1: Прямое обращение к свойству (самый быстрый)
-//В большинстве случаев достаточно просто обратиться к свойству .href.
 
     // 1. Находим ссылку по ID
     const myLink = document.getElementById('dynamic-link');
@@ -116,7 +97,6 @@ const box = document.querySelector('#myBox');
 
 // 2. Проверяем: а нашелся ли элемент?
 if (box) {
-    // Если элемент существует, работаем с ним:
 
     // Переключаем класс
     box.classList.toggle('active');
