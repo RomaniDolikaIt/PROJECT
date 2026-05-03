@@ -1,22 +1,16 @@
-const questions = [
-    {
-        type: 'choice',
-        question: 'Какая планета самая большая в Солнечной системе?',
-        options: ['Марс', 'Юпитер', 'Сатурн', 'Венера'],
-        answer: 'Юпитер'
-    },
-    {
-        type: 'input',
-        question: 'Как называется естественный спутник Земли?',
-        answer: 'луна'
-    },
-    {
-        type: 'choice',
-        question: 'Кто был первым человеком в космосе?',
-        options: ['Нил Армстронг', 'Юрий Гагарин', 'Алексей Леонов'],
-        answer: 'Юрий Гагарин'
-    }
-];
+const questions = [{
+    type: 'choice',
+    question: 'Какая планета самая большая в Солнечной системе?',
+    options: ['Марс', 'Юпитер', 'Сатурн', 'Венера'],
+    answer: 'Юпитер'
+}, {
+    type: 'input', question: 'Как называется естественный спутник Земли?', answer: 'луна'
+}, {
+    type: 'choice',
+    question: 'Кто был первым человеком в космосе?',
+    options: ['Нил Армстронг', 'Юрий Гагарин', 'Алексей Леонов'],
+    answer: 'Юрий Гагарин'
+}];
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -106,9 +100,11 @@ function endTest() {
     document.getElementById('final-score').textContent = `Ваш счет: ${score} из ${questions.length}`;
 
     // Сохранение рекорда [cite: 11, 17]
-    const best = localStorage.getItem('bestScore') || 0;
+    const savedScore = localStorage.getItem('bestScore');
+    const best = Number(savedScore) || 0;
+
     if (score > best) {
-        localStorage.setItem('bestScore', score);
+        localStorage.setItem('bestScore', score); // Здесь число автоматически станет строкой при записи
         highScoreDisplay.textContent = `Лучший результат: ${score}`;
     }
 }
