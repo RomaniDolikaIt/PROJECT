@@ -20,7 +20,7 @@ const questions = [
 
 let currentQuestionIndex = 0;
 let score = 0;
-let timeLeft = 10;
+let timeLeft = 30;
 let timerInterval;
 
 const startBtn = document.getElementById('start-btn');
@@ -38,7 +38,7 @@ const highScoreDisplay = document.getElementById('high-score');
 highScoreDisplay.textContent = `Лучший результат: ${localStorage.getItem('bestScore') || 0}`;
 
 function startTimer() {
-    timeLeft = 10;
+    timeLeft = 30;
     timerDisplay.textContent = `Осталось времени: ${timeLeft}с`;
     timerInterval = setInterval(() => {
         timeLeft--;
