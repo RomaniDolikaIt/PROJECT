@@ -5,95 +5,84 @@
 // Объясни своими словами, что произошло;
 
 
-// 1. Создаем исходный объект student
-const student = {
-    name: "Роман",
-    age: 25,
-    skills: ["JavaScript", "Logistics"],
-    address: {
-        city: "Moscow",
-        zip: 101000
+// 1. Создаем объект student с вложенными массивами и объектами
+const student1 = {
+    name: "Иван",
+    age: 22,
+    grades: [85, 90, 92], // Вложенный массив
+    address: {            // Вложенный объект
+        city: "Москва",
+        street: "Тверская"
     }
 };
 
 // 2. Создаем поверхностные копии разными способами
-const copy1 = { ...student }; // Spread оператор
-const copy2 = Object.assign({}, student); // Метод Object.assign
+// Способ А: Использование Spread-оператора (...)
+const copySpread = { ...student1 };
 
-// 3. Изменяем вложенные структуры у копии
-copy1.name = "Александр"; // Изменяем примитив (верхний уровень)
-copy1.skills.push("Python"); // Изменяем массив (вложенная структура)
-copy1.address.city = "Phuket"; // Изменяем объект (вложенная структура)
+// Способ Б: Использование метода Object.assign()
+const copyAssign = Object.assign({}, student);
 
-// 4. Распечатываем результаты
-console.log("--- КОПИЯ (copy1) ---");
-console.log("Имя:", copy1.name);
-console.log("Навыки:", copy1.skills);
-console.log("Город:", copy1.address.city);
+// 3. Изменяем вложенные структуры (и одно свойство верхнего уровня) у первой копии
+copySpread.name = "Алексей";                 // Свойство верхнего уровня (примитив)
+copySpread.grades.push(100);                 // Изменяем массив
+copySpread.address.city = "Санкт-Петербург"; // Изменяем объект
 
+// 4. Распечатываем свойства копии
+console.log("--- КОПИЯ (copySpread) ---");
+console.log("Имя:", copySpread.name);
+console.log("Оценки:", copySpread.grades);
+console.log("Город:", copySpread.address.city);
+
+// 5. Распечатываем те же свойства у оригинала
 console.log("\n--- ОРИГИНАЛ (student) ---");
-console.log("Имя:", student.name); // Останется "Роман"
-console.log("Навыки:", student.skills); // Тоже появится "Python"
-console.log("Город:", student.address.city); // Тоже станет "Phuket"
-
+console.log("Имя:", student1.name);
+console.log("Оценки:", student1.grades);
+console.log("Город:", student1.address.city);
 
 //todo 2. Создать копию объекта, внутри которого есть методы (функции),
 // с помощью использовать JSON методов. Затем попробуй вызывать метод у копии объекта.
 // Объясни своими словами, что произошло;
 
 
-// 1. Создаем исходный объект student
-const student = {
-    name: "Роман",
-    age: 25,
-    skills: ["JavaScript", "Logistics"],
-    address: {
-        city: "Moscow",
-        zip: 101000
+// 1. Создаем исходный объект, внутри которого есть свойства и метод (функция)
+const developer = {
+    name: "Анна",
+    language: "JavaScript",
+    // Это метод объекта
+    writeCode: function() {
+        console.log(`${this.name} пишет код на ${this.language}...`);
     }
 };
 
-// 2. Создаем поверхностные копии разными способами
-const copy1 = { ...student }; // Spread оператор
-const copy2 = Object.assign({}, student); // Метод Object.assign
-const deepCopy = structuredClone(student);
+// Проверяем, что метод работает у оригинала
+console.log("--- Вызов метода у ОРИГИНАЛА ---");
+developer.writeCode();
 
-// 3. Изменяем вложенные структуры у копии
-copy1.name = "Александр"; // Изменяем примитив (верхний уровень)
-copy1.skills.push("Python"); // Изменяем массив (вложенная структура)
-copy1.address.city = "Phuket"; // Изменяем объект (вложенная структура)
+// 2. Создаем копию с помощью комбинации методов JSON
+// Сначала превращаем объект в строку, затем строку обратно в объект
+const developerCopy = JSON.parse(JSON.stringify(developer));
 
-// 4. Распечатываем результаты
-console.log("--- КОПИЯ (copy1) ---");
-console.log("Имя:", copy1.name);
-console.log("Навыки:", copy1.skills);
-console.log("Город:", copy1.address.city);
+// 3. Проверяем, что получилось в копии
+console.log("\n--- Содержимое КОПИИ ---");
+console.log(developerCopy);
+// Вывод: { name: 'Анна', language: 'JavaScript' } - метода writeCode здесь уже нет!
 
-console.log("\n--- ОРИГИНАЛ (student) ---");
-console.log("Имя:", student.name); // Останется "Роман"
-console.log("Навыки:", student.skills); // Тоже появится "Python"
-console.log("Город:", student.address.city); // Тоже станет "Phuket"
+// 4. Пробуем вызвать метод у копии (оборачиваем в try...catch, чтобы скрипт не упал с ошибкой)
+console.log("\n--- Попытка вызвать метод у КОПИИ ---");
+try {
+    developerCopy.writeCode();
+} catch (error) {
+    console.error("ОШИБКА:", error.message);
+    // Выведет: ОШИБКА: developerCopy.writeCode is not a function
+}
 
 /*
-Что произошло? Объяснение «на пальцах»
+Объяснение: Что произошло?
 
-Когда мы делаем поверхностную копию (shallow copy), JavaScript ведет себя хитро:
-
-Примитивы (строки, числа, boolean): Они копируются «по значению».
-В памяти создается отдельная ячейка для copy1.name. Поэтому, когда мы переименовали студента в копии,
-оригинал остался нетронутым.
-
-Объекты и массивы (ссылочные типы): Они копируются «по ссылке».
-Представь, что в основном объекте лежит не сам массив навыков,
-а маленькая бумажка с адресом склада, где этот массив хранится.
-
-Когда я сделал const copy1 = { ...student },
-JavaScript просто переписал адрес с этой бумажки в новый объект.
-Теперь и student, и copy1 смотрят на один и тот же «склад» (адрес в памяти).
-
-Итог: Изменяя skills или address в любой из копий,
-ты физически меняешь данные по тому самому адресу, к которому обращается и оригинал.
-Именно поэтому изменения «протекли» в исходный объект.
+Когда мы попытались вызвать developerCopy.writeCode(),
+программа выдала ошибку is not a function (не является функцией).
+Если мы посмотрим на сам объект developerCopy, то увидим, что метод полностью исчез.
  */
 
 
@@ -134,4 +123,79 @@ function deepCopy(obj) {
 
     // 6. Возвращаем полностью собранный новый объект/массив.
     return copy;
+
 }
+
+//todo 4 Чтобы быть максимально точным с учебным заданием, покажи отличия поверхностного и
+// глубокой копии на структурированном объекте для structuredClone и ручной deepCopy
+// (например, поменяй вложенные значения и проверь независимость копий).
+// Используй const там, где переменные не изменяются (например, deepCopy).
+// // const — ссылка на объект не меняется
+// const copy = Array.isArray(obj) ? [] : {};
+
+
+//Исходный объект
+const student = {
+    name: "Роман",
+    skills: ["JavaScript", "Logistics"],
+    settings: {
+        theme: "dark",
+        notifications: true
+    }
+};
+
+//1. Поверхностная копия (Shallow Copy) Используем оператор spread.
+const shallow = { ...student };
+
+// Меняем вложенные данные
+shallow.skills.push("Python");
+shallow.settings.theme = "light";
+
+console.log(student.skills.includes("Python")); // true — ОШИБКА, оригинал испорчен
+console.log(student.settings.theme);           // "light" — ОШИБКА, оригинал испорчен
+
+//2. Глубокая копия через structuredClone()
+//Это современный браузерный стандарт. Он создает полную независимую копию.
+
+const deepStandard = structuredClone(student);
+
+deepStandard.skills.push("SQL");
+deepStandard.settings.theme = "minimal";
+
+console.log(student.skills.includes("SQL")); // false — УСПЕХ, оригинал защищен
+console.log(student.settings.theme);         // "light" (предыдущее изменение) — УСПЕХ
+
+//3. Ручная функция deepCopy (Разбор с исправлениями)
+function deepCopy(obj) {
+    // 1. Базовый случай: если примитив или null — возвращаем как есть
+    if (obj === null || typeof obj !== 'object') {
+        return obj;
+    }
+
+    // 2. Создаем контейнер. Используем const, так как ссылка на массив/объект стабильна
+    const copy = Array.isArray(obj) ? [] : {};
+
+    // 3. Рекурсивно перебираем ключи
+    for (const key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) {
+            // Рекурсия: заходим внутрь каждого вложенного элемента
+            copy[key] = deepCopy(obj[key]);
+        }
+    }
+
+    return copy;
+}
+
+// Проверка ручной функции
+const manualDeep = deepCopy(student);
+manualDeep.settings.notifications = false;
+
+console.log(student.settings.notifications); // true — УСПЕХ, оригинал не изменился
+
+/*
+Метод, Вложенность, Методы (функции), Когда использовать
+Spread / Assign, Поверхностно, Копирует ссылку, Быстрые операции с плоскими объектами
+JSON.parse/stringify,Глубоко, Удаляет,Быстрое клонирование простых данных
+structuredClone, Глубоко, Выдает ошибку, Стандарт для современной разработки
+Ручная deepCopy, Глубоко, Можно настроить,"Если нужна кастомная логика (например, пропуск свойств)"
+ */
