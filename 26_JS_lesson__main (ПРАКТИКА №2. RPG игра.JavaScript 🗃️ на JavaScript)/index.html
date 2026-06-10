@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>ПРАКТИКА №2. RPG игра</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game-container">
+    <header>
+        <h1>⚔️Путь героя</h1>
+        <button id="reset-btn" class="danger-btn">Сброс игры</button>
+    </header>
+
+    <div class="panel">
+        <h2>Статистика персонажа</h2>
+        <div class="stats-grid" id="player-stats">
+        </div>
+    </div>
+
+    <div class="panel" id="locations-panel">
+        <h3>🗺Доступные локации</h3>
+        <button onclick="explore('Лес')">Темный лес</button>
+        <button onclick="explore('Горы')">Горы</button>
+        <button onclick="explore('Заброшенный замок')">Заброшенный замок</button>
+    </div>
+
+    <div class="panel-hidden" id="actions-panel">
+        <h3>⚔️Бой!</h3>
+        <div id="enemy-stats">Враг: -</div>
+        <button onclick="attackEnemy()" class="danger-btn">Атаковать</button>
+        <button onclick="heal()">Зелье лечения (Осталось: <span id="potion-count">0</span>)</button>
+        <button onclick="flee()">Сбежать</button>
+
+    </div>
+
+    <div>
+        <h3>📜 Журнал событий</h3>
+        <div id="log-panel"></div>
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
+
