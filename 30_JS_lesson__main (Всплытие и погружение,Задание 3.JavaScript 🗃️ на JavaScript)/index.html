@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Делегирование и Валидация</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form id="registration-form">
+    <h3>Регистрация</h3>
+
+    <div class="input-group">
+        <label>Имя пользователя:</label>
+        <input type="text" name="username" placeholder="Придумайте ник">
+        <div class="error-message">Длина не должна превышать 20 символов!</div>
+    </div>
+
+    <div class="input-group">
+        <label>Город:</label>
+        <input type="text" name="city" placeholder="Ваш город">
+        <div class="error-message">Длина не должна превышать 20 символов!</div>
+    </div>
+
+    <div class="input-group">
+        <label>Хобби:</label>
+        <input type="text" name="hobby" placeholder="Чем увлекаетесь">
+        <div class="error-message">Длина не должна превышать 20 символов!</div>
+    </div>
+
+    <button type="submit">Отправить</button>
+</form>
+<script src="script.js"></script>
+</body>
+</html>
+

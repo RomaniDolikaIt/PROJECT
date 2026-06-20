@@ -1,0 +1,12 @@
+body { font-family: sans-serif; margin: 40px; background-color: #f4f4f9; }
+form { background: white; padding: 20px; border-radius: 8px; max-width: 350px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.input-group { margin-bottom: 20px; position: relative; }
+label { display: block; margin-bottom: 5px; font-weight: bold; }
+input { width: 100%; padding: 10px; box-sizing: border-box; border: 2px solid #ccc; border-radius: 4px; outline: none; }
+
+/* Стили для валидации */
+input.invalid { border-color: #f44336; background-color: #ffebee; }
+input.valid { border-color: #4CAF50; background-color: #e8f5e9; }
+
+.error-message { color: #f44336; font-size: 12px; margin-top: 5px; display: none; }
+button { width: 100%; padding: 12px; background-color: #008CBA; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; }

@@ -1,0 +1,4 @@
+/* Делаем вложенные коробки, чтобы их было видно */
+.box-1 { background-color: #ffcccc; padding: 50px; border: 2px solid red; }   /* Большая */
+.box-2 { background-color: #ccffcc; padding: 50px; border: 2px solid green; } /* Средняя */
+.box-3 { background-color: #ccccff; padding: 50px; border: 2px solid blue; }  /* Маленькая *
