@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Урок 32: Песочница Fetch API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="panel">
+    <h2>1. Создать пост (POST)</h2>
+    <form id="post-form">
+        <label>ID Пользователя:</label>
+        <input type="number" id="post-userid" value="1" required>
+        <label>Заголовок:</label>
+        <input type="text" id="post-title" placeholder="Введите заголовок" required>
+        <label>Текст поста:</label>
+        <textarea id="post-body" rows="3" placeholder="Введите текст..." required></textarea>
+        <button type="submit">🚀 Отправить POST запрос</button>
+    </form>
+    <div id="post-response" class="response-box">Ответ сервера появится здесь...</div>
+
+    <br><br>
+
+    <h2>4. Обновить профиль (PUT)</h2>
+    <form id="user-form">
+        <label>Имя профиля:</label>
+        <input type="text" id="user-name" value="Роман Программист">
+        <label>Email:</label>
+        <input type="email" id="user-email" value="roman@example.com">
+        <button type="submit">🔄 Отправить PUT запрос</button>
+    </form>
+    <div id="user-response" class="response-box">Обновленный профиль появится здесь...</div>
+</div>
+
+<div class="panel">
+    <h2>2 и 3. Список постов (GET и DELETE)</h2>
+    <button id="load-posts-btn" class="btn-load">📥 Загрузить список постов (GET)</button>
+    <div id="posts-container">Список постов пока пуст...</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
